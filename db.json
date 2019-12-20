@@ -1,0 +1,35 @@
+{
+  "users": [
+    {
+      "id": 14283,
+      "name": "Viju",
+      "gender": "1",
+      "name of father/husband": "Vijayan",
+      "paddress": "Alappuzha",
+      "dob": "01/05/1984",
+      "doj": "07/07/2010",
+      "dor": "31/04/2040",
+      "Desig": "U D Clerk",
+      "pen": "",
+      "oaddress": "P H Circle, Alappuzha",
+      "otherac": "",
+      "Service": "",
+      "central": "",
+      "fulltime": "",
+      "pensionable": "",
+      "officiating": "",
+      "reemployed": "",
+      "state": "yes",
+      "parttime": "",
+      "nonpen": "",
+      "permanant": "yes",
+      "nonreemp": "",
+      "bp": "27100",
+      "subscription": "2500",
+      "doss": "01/07/2011",
+      "hoac": "",
+      "family": "yes",
+      "nomination": "yes"
+    }
+  ]
+}

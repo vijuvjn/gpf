@@ -1,0 +1,28 @@
+.spacer{
+    flex: 1 1 auto;
+  }
+  
+  .tbar-title{
+    margin: 0 16px 0 16px;
+  }
+  
+  .topico{
+    padding: 10px;
+  }
+
+  .full-page{
+    height: 100%;
+    display: flex;
+  }
+  
+  .lcard {
+    margin: auto;
+    margin-top: 12%;
+    width: 300px;
+   }
+  
+  .login-field {
+    width: 100%;
+  }
+
+ 

@@ -1,0 +1,69 @@
+<mat-toolbar color=warn>
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    <img src="/assets/og_logo.png" width="40px" alt="">
+    <span class="tbar-title">KWA-GPF</span>
+    <span class="spacer"></span>
+    <button mat-icon-button>
+        <mat-icon class="topico">help</mat-icon>
+    </button>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon class="topico">account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" yPosition="below">
+        <button mat-menu-item>
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Sign Out</span>
+        </button>
+        <button mat-menu-item>
+            <mat-icon>settings</mat-icon>
+            <span>Change Password</span>
+        </button>
+    </mat-menu>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container" [hasBackdrop]="true">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport="false"
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'push' : 'push'"
+        [opened]="(isHandset$ | async)">
+
+        <mat-nav-list>
+
+            <h2 mat-subheader>SUBSCRIBER</h2>
+            <a mat-list-item href="#" routerLink="new">
+                <mat-icon matListIcon class="app-nav-list-icon">person_add</mat-icon>New
+            </a>
+            <a mat-list-item href="#" routerLink="edit">
+                <mat-icon matListIcon class="app-nav-list-icon">edit</mat-icon>Edit
+            </a>
+            <a mat-list-item href="#" routerLink="data">
+                <mat-icon matListIcon class="app-nav-list-icon">cloud_upload</mat-icon>Data
+            </a>
+            <mat-divider></mat-divider>
+
+            <h2 mat-subheader>ADVANCES</h2>
+            <a mat-list-item href="#" routerLink="tadv">
+                <mat-icon matListIcon class="app-nav-list-icon">money</mat-icon>Temp Adv
+            </a>
+            <a mat-list-item href="#" routerLink="nra">
+                <mat-icon matListIcon class="app-nav-list-icon">credit_card</mat-icon>NRA
+            </a>
+            <mat-divider></mat-divider>
+            <h2 mat-subheader>OTHERS</h2>
+            <a mat-list-item href="#" routerLink="convert">
+                <mat-icon matListIcon class="app-nav-list-icon">settings_backup_restore</mat-icon>Conversion
+            </a>
+            <a mat-list-item href="#" routerLink="close">
+                <mat-icon matListIcon class="app-nav-list-icon">card_travel</mat-icon>Closure
+            </a>
+            <a mat-list-item href="#" routerLink="statement">
+                <mat-icon matListIcon class="app-nav-list-icon">list</mat-icon>Statements
+            </a>
+
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

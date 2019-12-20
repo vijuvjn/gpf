@@ -1,0 +1,8 @@
+.mat-form-field{
+    margin: 10px;
+    width: 250px;
+}
+
+.mat-dialog-actions{
+    justify-content: flex-end;
+}

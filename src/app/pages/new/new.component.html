@@ -1,0 +1,132 @@
+<mat-card class="full">
+    <mat-card-header>
+        <mat-card-title>ADMISSION TO GENERAL PROVIDENT FUND</mat-card-title>
+        <mat-card-subtitle class="sub-head">FORM A <br>
+            (See rule 4)</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <form #newForm="ngForm">
+
+
+            <mat-form-field class="new-form-name1">
+                <input matInput placeholder="1. Name of Applicant" name="name" required ngModel />
+            </mat-form-field>
+
+            <mat-radio-group class="new-form-right" name="gender" ngModel>
+                <label>2. Gender </label>
+                <mat-radio-button value="1" class="radio">Male</mat-radio-button>
+                <mat-radio-button value="2" class="radio">Female</mat-radio-button>
+                <mat-radio-button value="3" class="radio">Trans Gender</mat-radio-button>
+            </mat-radio-group> <br>
+
+            <mat-form-field class="new-form-name">
+                <input matInput placeholder="3. Name of father/Husband" name="name of father/husband" required
+                    ngModel />
+            </mat-form-field>
+
+            <mat-form-field class="new-form-right">
+                <textarea matInput placeholder="4. Permanent Address" name="paddress" required ngModel></textarea>
+            </mat-form-field> <br>
+
+            <mat-form-field class="new-form-name">
+                <input matInput [matDatepicker]="Dob" placeholder="5. Date of Birth" name="dob" required ngModel>
+                <mat-datepicker-toggle matSuffix [for]="Dob"></mat-datepicker-toggle>
+                <mat-datepicker #Dob></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="new-form-right">
+                <input matInput [matDatepicker]="Doj" placeholder="6. Date of Joining in Service" name="doj" required
+                    ngModel>
+                <mat-datepicker-toggle matSuffix [for]="Doj"></mat-datepicker-toggle>
+                <mat-datepicker #Doj></mat-datepicker>
+            </mat-form-field> <br>
+
+            <mat-form-field class="new-form-name">
+                <input matInput [matDatepicker]="Dor" placeholder="7. Date of Retirement" name="dor" ngModel>
+                <mat-datepicker-toggle matSuffix [for]="Dor"></mat-datepicker-toggle>
+                <mat-datepicker #Dor></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="new-form-right">
+                <input matInput placeholder="8. Department (Parent)" disabled disabled value="Kerala Water Authority"
+                    name="department" />
+            </mat-form-field> <br>
+
+            <mat-form-field class="new-form-name">
+                <input matInput placeholder="9. Designation" name="Desig" required ngModel />
+            </mat-form-field>
+
+            <mat-form-field class="new-form-right">
+                <input matInput placeholder="10. Permanant employee number (PEN)" name="pen" ngModel />
+            </mat-form-field> <br>
+
+            <mat-form-field class="new-form-name1">
+                <textarea matInput placeholder="11. Official Address" name="oaddress" required ngModel></textarea>
+            </mat-form-field>
+
+            <mat-form-field class="new-form-right">
+                <mat-label>13. If the applicant is a subscriber to any other Provident Fund </mat-label>
+                <input matInput placeholder="Name of Fund and Account Number" name="otherac" ngModel />
+            </mat-form-field> <br>
+
+            <span ngModelGroup="Service">
+                <label class="new-form-name">12. Service in </label><br>
+                <mat-checkbox class="checkbox" name="central" ngModel>Central</mat-checkbox>
+                <mat-checkbox name="fulltime" ngModel>Full-time</mat-checkbox>
+                <mat-checkbox name="pensionable" ngModel>Pensionable</mat-checkbox>
+                <mat-checkbox name="officiating" ngModel>Officiating</mat-checkbox>
+                <mat-checkbox name="reemployed" ngModel>Re-employed</mat-checkbox> <br>
+
+                <mat-checkbox class="checkbox" name="state" ngModel>State</mat-checkbox>
+                <mat-checkbox name="parttime" ngModel>Part-time</mat-checkbox>
+                <mat-checkbox name="nonpen" ngModel>Non-pensionable</mat-checkbox>
+                <mat-checkbox name="permanant" ngModel>Permanent</mat-checkbox>
+                <mat-checkbox name="nonreemp" ngModel>Not Re-employed</mat-checkbox>
+            </span>
+
+
+
+            <mat-form-field class="basicpay">
+                <input matInput placeholder="14. Basic Pay" name="bp" required ngModel />
+            </mat-form-field> <br>
+
+            <mat-form-field class="new-form-name">
+                <input matInput placeholder="15. Monthly Subscription" name="subscription" required ngModel />
+            </mat-form-field>
+
+            <mat-form-field class="new-form-right">
+                <input matInput [matDatepicker]="doss" placeholder="16. Date of Subscriprion Starts" name="doss"
+                    required ngModel>
+                <mat-datepicker-toggle matSuffix [for]="doss"></mat-datepicker-toggle>
+                <mat-datepicker #doss></mat-datepicker>
+            </mat-form-field> <br>
+
+            <mat-form-field class="new-form-name1">
+                <input matInput placeholder="17. Salary Head of Account" name="hoac" ngModel />
+            </mat-form-field>
+
+            <mat-radio-group class="new-form-right" name="family" ngModel>
+                <label>18. Whether the applicant has a family </label>
+                <mat-radio-button value="1" class="radio">Yes</mat-radio-button>
+                <mat-radio-button value="2" class="radio">No</mat-radio-button>
+            </mat-radio-group> <br>
+
+            <mat-radio-group class="new-form-name" name="nomination" ngModel>
+                <label>19. Whether nomination enclosed </label>
+                <mat-radio-button value="1" class="radio">Yes</mat-radio-button>
+                <mat-radio-button value="2" class="radio">No</mat-radio-button>
+            </mat-radio-group>
+
+
+            <button mat-stroked-button color="warn" type="submit" value="submit">Submit</button>
+            <button mat-stroked-button color="warn">Clear</button>
+
+        </form>
+
+
+
+
+    </mat-card-content>
+
+</mat-card>
