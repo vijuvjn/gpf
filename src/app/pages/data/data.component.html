@@ -1,1 +1,31 @@
-<p>data works!</p>
+<mat-card class="full">
+    <mat-card-header>
+        <mat-card-title>UPLOAD SUBSCRIBER DATA</mat-card-title>
+        <mat-card-subtitle class="sub-head">Upload Data By</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+
+        <mat-radio-group [(ngModel)]="choice" class="radio">
+            <mat-radio-button *ngFor="let option of options" [value]="option"> {{option}}
+            </mat-radio-button>
+        </mat-radio-group>
+
+        <div>
+
+            <div *ngIf="choice=='PF Number'">
+                <mat-form-field>
+                    <input matInput placeholder="Data updation with PF number" value="">
+                </mat-form-field>
+            </div>
+
+            <div *ngIf="choice=='Office'">
+                <mat-form-field>
+                    <input matInput placeholder="Data updation office vice" value="">
+                </mat-form-field>
+            </div>
+
+        </div>
+
+    </mat-card-content>
+</mat-card>
