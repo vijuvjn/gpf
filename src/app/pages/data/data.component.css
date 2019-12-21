@@ -1,0 +1,22 @@
+.full {
+    margin: 2%;
+}
+
+.mat-card-header { 
+    justify-content: center; 
+}
+
+.sub-head {
+    text-align: center;
+    margin: auto;
+}
+
+.mat-radio-group{
+    display:flex ;
+    justify-content: center;
+    margin-top: 2%;
+  }
+
+.mat-radio-button{
+    margin: 1%;
+}
