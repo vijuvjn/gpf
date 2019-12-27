@@ -7,6 +7,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
+
+
 
 @NgModule({
   declarations: [DataComponent],
@@ -18,7 +22,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatCardModule,
     MatInputModule,
     MatRadioModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDividerModule,
+    MatButtonModule
   ]
 })
 export class DataModule { }

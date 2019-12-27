@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 
 
 @Component({
@@ -12,8 +13,31 @@ export class DataComponent implements OnInit {
   options: string[] = ['Office', 'PF Number'];
 
 
+  pfForm: FormGroup;
 
-  constructor() { }
+  constructor(private fb: FormBuilder) {
+    this.pfForm = this.fb.group({
+      month: [''], sub: [''], refund: [''], da: [''],
+      datas: this.fb.array([])
+
+    })
+  }
+
+  addNewMonth() {
+    let control = <FormArray>this.pfForm.controls.datas;
+    control.push(
+      this.fb.group({
+        month: [''], sub: [''], refund: [''], da: [''],
+      })
+    )
+  }
+
+  deleteMonth(index) {
+    let control = <FormArray>this.pfForm.controls.datas;
+    control.removeAt(index)
+  }
+
+
 
   ngOnInit() {
   }
