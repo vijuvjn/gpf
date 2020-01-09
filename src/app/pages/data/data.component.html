@@ -1,87 +1,201 @@
 <mat-card class="full" style="text-align: center;">
-    <mat-card-header>
+    <mat-card-header class="head">
+        <mat-icon>cloud_upload</mat-icon>
         <mat-card-title>UPLOAD SUBSCRIBER DATA</mat-card-title>
-        <mat-card-subtitle>Upload Data By</mat-card-subtitle>
+        <mat-card-subtitle class="subtitle">Upload Data By</mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content>
-
-        <mat-radio-group [(ngModel)]="choice">
-            <mat-radio-button *ngFor="let option of options" [value]="option"> {{option}}
-            </mat-radio-button>
-        </mat-radio-group>
-
-        <div>
-
-            <div *ngIf="choice=='PF Number'">
-                <form action="">
-                    <mat-form-field class="pfhead">
-                        <input matInput placeholder="PF number" value="">
-                    </mat-form-field>
-                    <mat-form-field class="pfhead">
-                        <input matInput placeholder="Name" value="">
-                    </mat-form-field>
-
-
-                </form>
-
+        <mat-tab-group mat-align-tabs="center">
+            <mat-tab label="Office">
                 <div>
-                    <form [formGroup]="pfForm">
-                        <span class="pfhead">1</span>
-                        <mat-form-field class="pfhead">
-                            <input type="month" matInput formControlName="month" placeholder="Month">
+                    <form action="">
+                        <mat-form-field class="topitem">
+                            <input matInput placeholder="Office" value="">
                         </mat-form-field>
-
-                        <mat-form-field class="pfhead">
-                            <input matInput formControlName="sub" placeholder="Subscription">
+                        <mat-form-field class="topitem">
+                            <input matInput [matDatepicker]="odate" [max]="today">
+                            <mat-datepicker-toggle matSuffix [for]="odate"></mat-datepicker-toggle>
+                            <mat-datepicker #odate></mat-datepicker>
                         </mat-form-field>
+                    </form>
+                    <table mat-table [dataSource]="dataSource" matSort style="text-align: left;">
 
-                        <mat-form-field class="pfhead">
-                            <input matInput formControlName="refund" placeholder="Refund">
+                        <ng-container matColumnDef="id">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> PF No </th>
+                            <td mat-cell *matCellDef="let user"> {{user.id}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                            <td mat-cell *matCellDef="let user"> {{user.name}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="sub">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Subscription </th>
+                            <td mat-cell *matCellDef="let user">
+                                <mat-form-field class="tableform">
+                                    <input matInput [(ngModel)]="user.sub" />
+                                </mat-form-field>
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="refund">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Refund </th>
+                            <td mat-cell *matCellDef="let user">
+                                <mat-form-field class="tableform">
+                                    <input matInput [(ngModel)]="user.refund" />
+                                </mat-form-field>
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="arrear">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> DA Arrear </th>
+                            <td mat-cell *matCellDef="let user">
+                                <mat-form-field class="tableform">
+                                    <input matInput [(ngModel)]="user.arrear" />
+                                </mat-form-field>
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="from">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>From</th>
+                            <td mat-cell *matCellDef="let user">
+                                <mat-form-field class="tableform">
+                                    <input matInput [matDatepicker]="from" [max]="today">
+                                    <mat-datepicker-toggle matSuffix [for]="from"></mat-datepicker-toggle>
+                                    <mat-datepicker #from></mat-datepicker>
+                                </mat-form-field>
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="to">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>To</th>
+                            <td mat-cell *matCellDef="let user">
+                                <mat-form-field class="tableform">
+                                    <input matInput [matDatepicker]="to" [max]="today">
+                                    <mat-datepicker-toggle matSuffix [for]="to"></mat-datepicker-toggle>
+                                    <mat-datepicker #to></mat-datepicker>
+                                </mat-form-field>
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns:displayedColumns;"></tr>
+
+                    </table>
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                    <button mat-stroked-button color="warn" class="pfhead">Clear</button>
+                    <button mat-stroked-button color="warn" class="pfhead">Upload Data</button>
+                </div>
+            </mat-tab>
+
+            <mat-tab label="P F Number">
+                <div>
+                    <form action="">
+                        <mat-form-field class="topitem">
+                            <input matInput placeholder="PF number" value="">
                         </mat-form-field>
-
-                        <mat-form-field class="pfhead">
-                            <input matInput formControlName="da" placeholder="DA Arrear">
+                        <mat-form-field class="topitem">
+                            <input matInput placeholder="Name" value="">
                         </mat-form-field>
-                        <button class="add" mat-stroked-button color="warn" (click)="addNewMonth()">Add </button>
+                    </form>
 
-                        <div formArrayName="datas">
-                            <div *ngFor="let comp of pfForm.get('datas').controls; let i=index">
-                                <div [formGroupName]="i">
+                    <div>
+                        <form [formGroup]="pfForm">
+                            <span class="pfhead">1</span>
 
-                                    <span class="pfhead">{{i+2}}</span>
-                                    <mat-form-field class="pfhead">
-                                        <input matInput formControlName="month" placeholder="Month">
-                                    </mat-form-field>
+                            <mat-form-field class="pfhead" color="warn">
+                                <input matInput [matDatepicker]="date" [max]="today" placeholder="Date"
+                                    formControlName="date">
+                                <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+                                <mat-datepicker #date></mat-datepicker>
+                            </mat-form-field>
 
-                                    <mat-form-field class="pfhead">
-                                        <input matInput formControlName="sub" placeholder="Subscription">
-                                    </mat-form-field>
+                            <mat-form-field class="pfhead">
+                                <input matInput formControlName="sub" placeholder="Subscription">
+                            </mat-form-field>
 
-                                    <mat-form-field class="pfhead">
-                                        <input matInput formControlName="refund" placeholder="Refund">
-                                    </mat-form-field>
+                            <mat-form-field class="pfhead">
+                                <input matInput formControlName="refund" placeholder="Refund">
+                            </mat-form-field>
 
-                                    <mat-form-field class="pfhead">
-                                        <input matInput formControlName="da" placeholder="DA Arrear">
-                                    </mat-form-field>
+                            <mat-form-field class="pfhead">
+                                <input matInput formControlName="da" placeholder="DA Arrear">
+                            </mat-form-field>
 
-                                    <button mat-stroked-button color="warn" (click)="deleteMonth(i)">Remove</button><br>
+                            <mat-form-field class="pfhead">
+                                <input matInput [matDatepicker]="from" [max]="today" placeholder="From"
+                                    formControlName="from">
+                                <mat-datepicker-toggle matSuffix [for]="from"></mat-datepicker-toggle>
+                                <mat-datepicker #from></mat-datepicker>
+                            </mat-form-field>
 
+                            <mat-form-field class="pfhead">
+                                <input matInput [matDatepicker]="to" [max]="today" placeholder="To"
+                                    formControlName="to">
+                                <mat-datepicker-toggle matSuffix [for]="to"></mat-datepicker-toggle>
+                                <mat-datepicker #to></mat-datepicker>
+                            </mat-form-field>
+                            <button mat-icon-button (click)="addNew()" matTooltip="Add Row">
+                                <mat-icon>add</mat-icon>
+                            </button>
+
+                            <div formArrayName="datas">
+                                <div *ngFor="let month of pfForm.get('datas').controls; let i=index">
+                                    <div [formGroupName]="i">
+
+                                        <span class="pfhead">{{i+2}}</span>
+                                        <mat-form-field class="pfhead" color="warn">
+                                            <input matInput [matDatepicker]="date" [max]="today" placeholder="Date"
+                                                formControlName="date">
+                                            <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+                                            <mat-datepicker #date></mat-datepicker>
+                                        </mat-form-field>
+
+                                        <mat-form-field class="pfhead">
+                                            <input matInput formControlName="sub" placeholder="Subscription">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="pfhead">
+                                            <input matInput formControlName="refund" placeholder="Refund">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="pfhead">
+                                            <input matInput formControlName="da" placeholder="DA Arrear">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="pfhead">
+                                            <input matInput [matDatepicker]="from" [max]="today" placeholder="From"
+                                                formControlName="from">
+                                            <mat-datepicker-toggle matSuffix [for]="from"></mat-datepicker-toggle>
+                                            <mat-datepicker #from></mat-datepicker>
+                                        </mat-form-field>
+
+                                        <mat-form-field class="pfhead">
+                                            <input matInput [matDatepicker]="to" [max]="today" placeholder="To"
+                                                formControlName="to">
+                                            <mat-datepicker-toggle matSuffix [for]="to"></mat-datepicker-toggle>
+                                            <mat-datepicker #to></mat-datepicker>
+                                        </mat-form-field>
+                                        <button mat-icon-button (click)="deleteadded(i)" matTooltip="Remove Row">
+                                            <mat-icon>clear</mat-icon>
+                                        </button>
+
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <button mat-stroked-button color="warn" class="pfhead">Cancel</button>
-                        <button mat-stroked-button color="warn" class="pfhead">Save</button>
-                    </form>
+                            <button mat-stroked-button color="warn" class="pfhead">Clear</button>
+                            <button mat-stroked-button color="warn" class="pfhead">Upload Data</button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div *ngIf="choice=='Office'">
-                <mat-form-field>
-                    <input matInput placeholder="Data updation office vice" value="">
-                </mat-form-field>
-            </div>
-        </div>
+            </mat-tab>
+        </mat-tab-group>
+
+
+
+
 
     </mat-card-content>
 </mat-card>

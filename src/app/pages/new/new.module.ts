@@ -11,6 +11,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material';
 
 
 
@@ -27,7 +28,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatRadioModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatIconModule
   ]
 })
 export class NewModule { }

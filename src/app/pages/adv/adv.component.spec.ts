@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NraComponent } from './nra.component';
+import { AdvComponent } from './adv.component';
 
-describe('NraComponent', () => {
-  let component: NraComponent;
-  let fixture: ComponentFixture<NraComponent>;
+describe('AdvComponent', () => {
+  let component: AdvComponent;
+  let fixture: ComponentFixture<AdvComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NraComponent ]
+      declarations: [ AdvComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NraComponent);
+    fixture = TestBed.createComponent(AdvComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

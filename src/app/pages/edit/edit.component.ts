@@ -15,7 +15,9 @@ import { USER_DATA } from "./user_data";
 })
 export class EditComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'desig', 'office', 'basic'];
+  displayedColumns: string[] = ['id', 'name', 'desig', 'office', 'basic'
+
+  ];
   dataSource = new MatTableDataSource<User>(USER_DATA);
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -31,7 +33,7 @@ export class EditComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  updateUser(User) {
+  updateUser(User: any) {
     this.dialog.open(UpdateuserComponent, {
       data: User
     }).afterClosed().subscribe((_User) => {

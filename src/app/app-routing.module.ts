@@ -42,18 +42,10 @@ const routes: Routes = [
       },
 
       {
-        path: 'tadv',
+        path: 'adv',
         loadChildren: () =>
-          import('./pages/tadv/tadv.module').then(
-            m => m.TadvModule
-          )
-      },
-
-      {
-        path: 'nra',
-        loadChildren: () =>
-          import('./pages/nra/nra.module').then(
-            m => m.NraModule
+          import('./pages/adv/adv.module').then(
+            m => m.AdvModule
           )
       },
 

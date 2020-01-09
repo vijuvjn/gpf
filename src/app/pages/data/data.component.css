@@ -2,18 +2,39 @@
     margin: 2%;
 }
 
-.mat-card-header { 
-    justify-content: center; 
+.head{
+    justify-content: center;
 }
 
-.mat-radio-button{
-    margin: 1%;
+.subtitle{
+    text-align: center;
 }
 
 .pfhead{
     margin-right: 2%;
+    width: 150px;
 }
 
-.add{
-   width: 80px;
+table{
+    width: 100%;
+}
+
+.mat-row:hover {
+    background-color:#f2f2f2;
+  }
+
+.pfpage{
+    justify-content: center;
+    align-items: center;
+}
+
+.tableform{
+    margin-right: 2%;
+    width: 100px;
+}
+
+.topitem{
+    margin-right: 2%;
+    width: 150px;
+    margin-top: 1%;
 }
