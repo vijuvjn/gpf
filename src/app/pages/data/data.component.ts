@@ -10,8 +10,6 @@ import { MatSort } from '@angular/material/sort';
 import { User } from "../edit/user_model";
 import { USER_DATA } from "../edit/user_data";
 
-
-
 const moment = _rollupMoment || _moment;
 
 export const MY_FORMATS = {
